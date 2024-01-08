@@ -10,6 +10,8 @@ import { toast } from 'react-toastify';
 
 import Link from 'next/link';
 
+import { canSSRGuest } from '../utils/canSSRGuest';
+
 export default function Home() {
 
 
@@ -76,10 +78,18 @@ export default function Home() {
       </div>
 
       <Link href="/signup" legacyBehavior> 
-        <a className={styles.text}>Cadastrar</a>
+        <a className={styles.text}>Cadastrar-se</a>
       </Link>
       
     </div>
     </>
   )
 }
+
+// Função para ver se está logado ou nao
+export const getServerSideProps = canSSRGuest(async (ctx) => {
+
+  return {
+    props: {}
+  }
+})
