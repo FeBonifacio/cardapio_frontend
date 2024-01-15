@@ -8,7 +8,7 @@
     let cookies = parseCookies(ctx);
 
     const api = axios.create({
-        baseURL: 'https://currency-seven-woad.vercel.app/',
+        baseURL: 'https://currency-seven-woad.vercel.app',
         headers: {
         Authorization: `Bearer ${cookies['@nextauth.token']}`
         }
